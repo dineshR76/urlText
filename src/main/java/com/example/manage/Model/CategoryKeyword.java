@@ -2,30 +2,37 @@ package com.example.manage.Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CategoryKeyword 
 {
 	
 	
-
-	HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+	 static HashMap<String, ArrayList<String>> map = new HashMap<>();
 	
 	
-	public void add(String category, ArrayList<String> keyword)
+	public static void add(String category, List<String> keyword)
 	{
-		map.put(category, keyword);
+		map.put(category, (ArrayList<String>) keyword);
 	}
 	
-	public void display()
-	{
-		System.out.println(map);
-	}
 
-	public HashMap<String, ArrayList<String>> getMap() {
+	public static Map<String, ArrayList<String>> getMap() {
 		return map;
 	}
-
-	public void setMap(HashMap<String, ArrayList<String>> map) {
-		this.map = map;
+	
+	public static void setMap(Map<String, ArrayList<String>> map) {
+		CategoryKeyword.map = (HashMap<String, ArrayList<String>>) map;
 	}
+	
+	private CategoryKeyword()
+	{
+		super();
+	}
+
+	
 }
